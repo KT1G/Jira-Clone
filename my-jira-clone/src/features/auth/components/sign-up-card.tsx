@@ -25,7 +25,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z.object({
   name: z.string().min(1, "Debe introducir un nombre"),
-  email: z.string().email(),
+  email: z.string().email("Correo no valido"),
   password: z.string().min(8, "Mínimo de 8 caracteres requeridos"),
 });
 
@@ -133,6 +133,15 @@ export const SignUpCard = () => {
           <FaGithub className="mr-2 size-5" />
           Inicia sesión con Github
         </Button>
+      </CardContent>
+      <div className="px-7">
+        <DottedSeparator />
+      </div>
+      <CardContent className="flex items-center justify-center p-7">
+        <p>¿Ya tienes una cuenta creada?</p>
+        <Link href={"/sign-in"}>
+          <span className="text-blue-700">&nbsp;Accede a tu cuenta</span>
+        </Link>
       </CardContent>
     </Card>
   );

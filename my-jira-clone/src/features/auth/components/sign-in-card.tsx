@@ -15,10 +15,11 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import Link from "next/link";
 
 const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(1),
+  email: z.string().email("Correo no valido"),
+  password: z.string().min(1, "La contraseña debe tener al menos un caracter"),
 });
 
 export const SignInCard = () => {
@@ -102,6 +103,15 @@ export const SignInCard = () => {
           <FaGithub className="mr-2 size-5" />
           Inicia sesión con Github
         </Button>
+      </CardContent>
+      <div className="px-7">
+        <DottedSeparator />
+      </div>
+      <CardContent className="flex items-center justify-center p-7">
+        <p>¿No tienes una cuenta aun?</p>
+        <Link href={"/sign-up"}>
+          <span className="text-blue-700">&nbsp;Crea tu cuenta</span>
+        </Link>
       </CardContent>
     </Card>
   );
