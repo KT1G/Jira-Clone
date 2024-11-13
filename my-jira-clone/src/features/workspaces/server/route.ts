@@ -5,6 +5,7 @@ import { ID, Query } from "node-appwrite";
 import { DATABASE_ID, IMAGES_BUCKET_ID, MEMBERS_ID, WORKSPACE_ID } from "@/config";
 import { MemberRoles } from "@/features/members/types";
 import { sessionMiddleware } from "@/lib/sessionMiddleware";
+import { generateInvitateCode } from "@/lib/utils";
 
 import { createWorkspacesSchema } from "../schemas";
 
@@ -73,7 +74,8 @@ const app = new Hono()
         {
           name,
           userid: user.$id,
-          imageUrl: uploadedImageUrl
+          imageUrl: uploadedImageUrl,
+          inviteCode: generateInvitateCode(6)
         }
       )
 
