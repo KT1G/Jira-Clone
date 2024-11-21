@@ -1,9 +1,11 @@
-import { Navbar } from "@/components/Navbar";
-import { Sidebar } from "@/components/Sidebar";
-import { CreateWorkspaceModal } from "@/features/workspaces/components/create-workspace-modal";
+import React from "react"
+
+import { Navbar } from "@/components/Navbar"
+import { Sidebar } from "@/components/Sidebar"
+import { CreateWorkspaceModal } from "@/features/workspaces/components/create-workspace-modal"
 
 interface DashboardLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
@@ -21,7 +23,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DashboardLayout;
+export default DashboardLayout
