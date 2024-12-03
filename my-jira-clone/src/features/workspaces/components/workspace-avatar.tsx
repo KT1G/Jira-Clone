@@ -1,12 +1,12 @@
-import Image from "next/image";
+import Image from "next/image"
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { cn } from "@/lib/utils";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { cn } from "@/lib/utils"
 
 interface WorkspaceAvatarProps {
-  image?: string;
-  nameSpace: string;
-  className?: string;
+  image?: string
+  nameSpace: string
+  className?: string
 }
 
 export const WorkspaceAvatar = ({
@@ -21,7 +21,7 @@ export const WorkspaceAvatar = ({
       >
         <Image src={image} alt={nameSpace} fill className="object-cover" />
       </div>
-    );
+    )
   }
 
   return (
@@ -30,5 +30,5 @@ export const WorkspaceAvatar = ({
         {nameSpace[0]}
       </AvatarFallback>
     </Avatar>
-  );
-};
+  )
+}

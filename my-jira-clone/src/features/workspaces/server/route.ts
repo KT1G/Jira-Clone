@@ -21,14 +21,14 @@ const app = new Hono()
     const databases = c.get("databases")
 
     const members = await databases.listDocuments(DATABASE_ID, MEMBERS_ID, [
-      Query.equal("userid", user.$id),
+      Query.equal("userId", user.$id),
     ])
 
     if (members.total === 0) {
       return c.json({ data: { documents: [], total: 0 } })
     }
 
-    const worspacesIds = members.documents.map((member) => member.workspaceid)
+    const worspacesIds = members.documents.map((member) => member.workspaceId)
 
     const workspaces = await databases.listDocuments(
       DATABASE_ID,
@@ -72,15 +72,15 @@ const app = new Hono()
         ID.unique(),
         {
           name,
-          userid: user.$id,
+          userId: user.$id,
           imageUrl: uploadedImageUrl,
           inviteCode: generateInvitateCode(6),
         },
       )
 
       await database.createDocument(DATABASE_ID, MEMBERS_ID, ID.unique(), {
-        userid: user.$id,
-        workspaceid: workspace.$id,
+        userId: user.$id,
+        workspaceId: workspace.$id,
         role: MemberRoles.ADMIN,
       })
 
